@@ -128,6 +128,12 @@ static void handle_stream_request(struct mg_connection *c) {
         "Connection: close\r\n"
         "\r\n");
     stream_add_conn(c);
+
+    /* 首个客户端时注册帧回调 */
+    if (s_stream_count == 1) {
+        hal_camera_stream_on_frame(stream_frame_cb, NULL);
+        KC_LOGI(TAG, "stream frame callback registered");
+    }
 }
 
 /* 流媒体状态 JSON */
