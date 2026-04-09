@@ -1,0 +1,12 @@
+config BR2_PACKAGE_K230CLAW
+	bool "k230claw AI assistant"
+	depends on BR2_PACKAGE_LIBCURL
+	depends on BR2_PACKAGE_OPENSSL
+	select BR2_PACKAGE_ALSA_LIB
+	select BR2_PACKAGE_JPEG
+	select BR2_PACKAGE_VVCAM
+	help
+	  K230Claw AI assistant for K230 Linux.
+	  Provides CLI interface to LLM (OpenAI/Anthropic) with
+	  tool use, memory, session management, camera capture,
+	  voice input (cloud STT), and voice output (local KPU TTS).
